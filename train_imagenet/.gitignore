@@ -1,0 +1,5 @@
+checkpoint/SGD*
+__pycache__/
+wandb/
+.vscode/
+

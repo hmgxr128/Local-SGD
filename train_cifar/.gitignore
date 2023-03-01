@@ -1,0 +1,9 @@
+run.sh
+test.sh
+adjust_param.sh
+__pycache__/
+.vscode/
+wandb/
+checkpoint/test/
+checkpoint/test2/
+model/__pycache__/

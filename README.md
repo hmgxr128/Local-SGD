@@ -1,6 +1,6 @@
 # Why (and When) does Local SGD Generalize Better than SGD?
 
-This repository provides the code for the paper "Why (and When) dos Local SGD Generalize Better than SGD" by Xinran Gu, Kaifeng Lyu, Longbo Huang and Sanjeev Arora, published in ICLR 2023.
+This repository provides the code for the paper "Why (and When) does Local SGD Generalize Better than SGD" by Xinran Gu, Kaifeng Lyu, Longbo Huang and Sanjeev Arora, published in ICLR 2023.
 
 ## Code Structure
 

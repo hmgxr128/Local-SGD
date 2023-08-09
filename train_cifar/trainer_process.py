@@ -144,6 +144,9 @@ class TrainerProcess:
                 if batch_idx % self.args.models_per_gpu == self.args.models_per_gpu - 1:
                     self.phase_step_ctr += 1
                     self.step_ctr += 1
+                    if is_main_process():
+                        print(f"phase step {self.phase_step_ctr}, total step {self.step_ctr}")
+                        print_client_lr(self.client_list[0].optimizer)
                 
                     # Check whether it is time to average
                     if self.phase_step_ctr % self.args.local_steps == 0:
@@ -216,7 +219,7 @@ class TrainerProcess:
             print(f"Round {self.comm_round}, phase step {self.phase_step_ctr}, total step {self.step_ctr}")
             print_lr(self.step_ctr, self.client_list[0].optimizer)
         
-        self.save_step()
+        # self.save_step()
 
         if self.phase_comm_round % self.args.eval_freq == 0:
             if train:
@@ -228,6 +231,7 @@ class TrainerProcess:
                 self.estimate_BN_params()
             
             val_stats = self.eval_step()
+            self.save_step()
 
             if is_main_process():
                 wandb.log({
